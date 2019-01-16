@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <trexle_payment>
+                <title>Trexle Payments</title>
+                <model>Trexle\Payment\Model\Trexle</model>
+                <active>1</active>
+                <cctypes>AE,VI,MC,DI</cctypes>
+            </trexle_payment>
+        </payment>
+    </default>
+</config>
+

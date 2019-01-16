@@ -1,0 +1,40 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="trexle_payment" translate="label comment" type="text" sortOrder="50" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Trexle Payments</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="cctypes" translate="label" type="multiselect" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Credit Card Types</label>
+                    <source_model>Magento\Payment\Model\Source\Cctype</source_model>
+                </field>
+                <field id="secret_key" translate="label" type="obscure" sortOrder="6" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Secret Key</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="payment_action" translate="label" type="select" sortOrder="8" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Payment Action</label>
+                    <source_model>Trexle\Payment\Model\Source\PaymentAction</source_model>
+                </field>
+                <field id="description_prefix" translate="label" type="text" sortOrder="9" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Description Prefix</label>
+                    <comment>Additional description text (prefixes the Order Reference Number)</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
