@@ -72,7 +72,7 @@ class Result extends DataObject
      */
     public function getCCType()
     {
-        $oCard =  $this->getResponseValue('card');
+        $oCard = $this->getResponseValue('card');
         return (isset($oCard->scheme)) ? $oCard->scheme : null;
     }
 
@@ -83,7 +83,7 @@ class Result extends DataObject
      */
     protected function getResponseValue($vKey)
     {
-        if (!isset($this->_response) || (!isset($this->_response->response)) || (!isset($this->_response->response->$vKey))){
+        if (!isset($this->_response) || (!isset($this->_response->response)) || (!isset($this->_response->response->$vKey))) {
             return null;
         }
         return $this->_response->response->$vKey;
@@ -105,8 +105,8 @@ class Result extends DataObject
      */
     public function getErrorDescription()
     {
-        if (isset($this->_response->error_description)) {
-            return $this->_response->error_description;
+        if (isset($this->_response->detail)) {
+            return $this->_response->detail;
         }
         return null;
     }

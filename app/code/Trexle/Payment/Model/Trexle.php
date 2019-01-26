@@ -340,12 +340,15 @@ class Trexle implements MethodInterface
 
         $authKey = $this->getConfigData('secret_key', $order->getStoreId());
 
+        if (empty($authKey)){
+            throw new LocalizedException(__("No authorization key was set."));
+        }
+
         $client->setAuth($authKey);
+
         $client->setConfig(['maxredirects' => 0, 'timeout' => 120]);
         $client->setUri($endpoint);
         $client->setMethod($method);
-
-        $this->_logger->debug($endpoint);
 
         /**
          * A capture-only request requires amount value as the only parameter.
@@ -399,8 +402,6 @@ class Trexle implements MethodInterface
                 "capture" => $capture
             ];
         }
-
-        $this->_logger->debug(json_encode($data));
 
         foreach ($data as $reqParam => $reqValue) {
             $client->setParameterPost($reqParam, $reqValue);
